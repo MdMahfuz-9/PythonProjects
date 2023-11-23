@@ -3,7 +3,7 @@ print(type(todos))
 
 
 while True:
-    user_action = input("Type add or show :")
+    user_action = input("Type add , show , edit ,exit:")
     user_action = user_action.strip()
 
     match user_action:
@@ -16,14 +16,14 @@ while True:
                 print(item)
 
         case 'edit':
-            number = int(input("Enter the number of todo"))
+            number = int(input("Enter the number of todo: "))
             number = number - 1
-            todos_edit = todos[number]
-            print (todos_edit)
+            new_todos = input("Enter the new todos : ")
+            todos[number] = new_todos 
+           
 
         case 'exit':
             break
 
 print("Bye")
-# for item in ["sandals", "glasses", "trousers"]:
-#     print(item.capitalize())
+
