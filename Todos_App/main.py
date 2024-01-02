@@ -1,10 +1,10 @@
-def get_todos(filepath):
-    with open(filepath, 'r') as file:  # read files
+def get_todos(filepath):                # read files
+    with open(filepath, 'r') as file:
         todos = file.readlines()
     return todos
 
-def write_todos(filepath , todos_arg):
-    with open(filepath, 'w') as file:  # save the new todos to the file
+def write_todos(filepath , todos_arg):  # save the new todos to the file
+    with open(filepath, 'w') as file:
         file.writelines(todos)
 
 
