@@ -1,6 +1,2 @@
-b
-c
-d
-dd
-q
-rr
+a
+a

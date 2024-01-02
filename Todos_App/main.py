@@ -1,22 +1,30 @@
+def get_todos(filepath):
+    with open(filepath, 'r') as file:  # read files
+        todos = file.readlines()
+    return todos
+
+def write_todos(filepath , todos_arg):
+    with open(filepath, 'w') as file:  # save the new todos to the file
+        file.writelines(todos)
+
+
+
 while True:
     user_action = input("Type add,show,edit,complete,exit :-")
     user_action = user_action.strip()
 
-
     if user_action.startswith('add'):
         todo = user_action[4:] + '\n'
 
-        with open('todos.txt', 'r') as file: #read files
-            todos = file.readlines()
+        todos = get_todos('todos.txt')
 
         todos.append(todo )
 
-        with open('todos.txt', 'w') as file:  # save the new todos to the file
-            file.writelines(todos)
+        write_todos("todos.txt", todos)
+
     elif user_action.startswith('show'):
 
-        with open('todos.txt', 'r') as file:
-            todos = file.readlines()
+        todos = get_todos('todos.txt')
 
         new_todos = [item.strip('\n') for item in todos]
 
@@ -27,8 +35,7 @@ while True:
 
     elif 'edit' in user_action:
 
-        with open('todos.txt', 'r') as file: #read files
-            todos = file.readlines()
+        todos = get_todos('todos.txt')
 
         new_todos = [item.strip('\n') for item in todos]
 
@@ -40,13 +47,11 @@ while True:
         replaced_todos = input("enter new todo")
         todos[edit_num] = replaced_todos + '\n'
 
-        with  open('todos.txt', 'w') as file: # save the new todos to the file
-            file.writelines(todos)
+        write_todos("todos.txt", todos)
 
     elif user_action.startswith('complete'):
         try:
-            with open('todos.txt', 'r') as file: #read files
-                todos = file.readlines()
+            todos = get_todos('todos.txt')
 
             for index, item in enumerate(todos):
                 row = f"{index}-{item}"
@@ -54,8 +59,7 @@ while True:
             pop_num = int(input("which one is complete:- "))
             todos.pop(pop_num)
 
-            with  open('todos.txt', 'w') as file: # save the new todos to the file
-                file.writelines(todos)
+            write_todos("todos.txt", todos)
         except IndexError:
             print("No item with that number.")
             continue
