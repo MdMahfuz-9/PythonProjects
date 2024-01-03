@@ -1,12 +1,4 @@
-def get_todos(filepath):                # read files
-    with open(filepath, 'r') as file:
-        todos = file.readlines()
-    return todos
-
-def write_todos(filepath , todos_arg):  # save the new todos to the file
-    with open(filepath, 'w') as file:
-        file.writelines(todos)
-
+from functions import get_todos ,write_todos
 
 
 while True:
@@ -16,15 +8,15 @@ while True:
     if user_action.startswith('add'):
         todo = user_action[4:] + '\n'
 
-        todos = get_todos('todos.txt')
+        todos = get_todos("new.txt")
 
         todos.append(todo )
 
-        write_todos("todos.txt", todos)
+        write_todos(todos)
 
     elif user_action.startswith('show'):
 
-        todos = get_todos('todos.txt')
+        todos = get_todos()
 
         new_todos = [item.strip('\n') for item in todos]
 
@@ -35,7 +27,7 @@ while True:
 
     elif 'edit' in user_action:
 
-        todos = get_todos('todos.txt')
+        todos = get_todos()
 
         new_todos = [item.strip('\n') for item in todos]
 
@@ -47,11 +39,11 @@ while True:
         replaced_todos = input("enter new todo")
         todos[edit_num] = replaced_todos + '\n'
 
-        write_todos("todos.txt", todos)
+        write_todos( todos)
 
     elif user_action.startswith('complete'):
         try:
-            todos = get_todos('todos.txt')
+            todos = get_todos()
 
             for index, item in enumerate(todos):
                 row = f"{index}-{item}"
@@ -59,7 +51,7 @@ while True:
             pop_num = int(input("which one is complete:- "))
             todos.pop(pop_num)
 
-            write_todos("todos.txt", todos)
+            write_todos(todos)
         except IndexError:
             print("No item with that number.")
             continue
