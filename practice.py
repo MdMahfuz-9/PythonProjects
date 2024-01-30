@@ -1,11 +1,11 @@
-content = [ "a","b","c"]
-
-filename = ["aaa.txt","bcc.txt","cdd.txt"]
-
-for contents , filenaems in zip(content,filename):
-
-    file = open(f"file/{filename}", 'w')
-
-    file.write(contents)
-    file.close()
-
+# hight = input("Enter the hight-")
+#
+# def convert(hight):
+#     split = hight.split(" ")
+#     feet = float(split[0])
+#     inches = float(split[1])
+#
+#     meter = feet * 0.3048 + inches * 0.0254
+#     return meter
+#
+# print(convert(hight))
