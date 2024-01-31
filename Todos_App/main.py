@@ -1,6 +1,8 @@
 # from functions import get_todos ,write_todos
 import functions
+import time
 
+now = time.strftime("%d-%b-%y %H:%M:%S")
 while True:
     user_action = input("Type add,show,edit,complete,exit :-")
     user_action = user_action.strip()
