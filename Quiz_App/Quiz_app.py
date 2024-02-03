@@ -22,7 +22,7 @@ for index,questions in enumerate(data):
     else:
         result = "Wrong ans"
 
-    message = f" {index+1}-{result}. Your answer : {questions['user_choice']}, "\
+    message = f" {index+1}-{result}.   Your answer : {questions['user_choice']}, "\
               f"Correct answer: {questions['correct_answer']}"
     print(message)
 
